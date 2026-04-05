@@ -24,7 +24,7 @@ function displayProductDetails(product) {
   // Inject Product Data :/
   productSectionMetadata.querySelector(".name").textContent = product.name;
   productSectionMetadata.querySelector(".price").innerHTML = product.sale_price
-    ? `${product.sale_price} ${product.currency} <span class="sale-price">${product.price} ${product.currency}</span>`
+    ? `${product.price} ${product.currency} <span class="sale-price">${product.sale_price} ${product.currency}</span>`
     : `${product.price} ${product.currency}`;
 
   let productImages = "";

@@ -25,7 +25,7 @@ function displayShopProducts(products, filteredProducts = null) {
           </a>
           <div class="content">
             <h5>${product.name}</h5>
-            <p>${product.sale_price ? `${product.sale_price} L.E <span class="sale-price">${product.price} L.E</span> ` : `${product.price} L.E`}</p>
+            <p>${product.sale_price ? `${product.price} ${product.currency} <span class="sale-price">${product.sale_price} ${product.currency}</span> ` : `${product.price} L.E`}</p>
             <h6 class="size">
               ${product.variants[0].sizes
                 .map((size) => {

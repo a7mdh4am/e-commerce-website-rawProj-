@@ -27,8 +27,8 @@
   {
     "id": 2,
     "name": "Yellow Trouser",
-    "price": 1200,
-    "sale_price": 1000,
+    "price": 1000,
+    "sale_price": 1200,
     "currency": "EGP",
     "category": ["sale"],
     "images": [
