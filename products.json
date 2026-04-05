@@ -1,0 +1,195 @@
+[
+  
+  
+  {
+    "id": 1,
+    "name": "Green Jacket",
+    "price": 1200,
+    "currency": "EGP",
+    "images": [
+      "assets/images/7.png",
+      "assets/images/7.png",
+      "assets/images/7.png",
+      "assets/images/7.png"
+    ],
+    "variants": [
+      {
+        "Hex": "#000",
+        "sizes": [
+          { "size": "S", "stock": 10 },
+          { "size": "M", "stock": 0 },
+          { "size": "L", "stock": 5 },
+          { "size": "XL", "stock": 2 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Yellow Trouser",
+    "price": 1200,
+    "sale_price": 1000,
+    "currency": "EGP",
+    "category": ["sale"],
+    "images": [
+      "assets/images/8.png",
+      "assets/images/8.png",
+      "assets/images/8.png",
+      "assets/images/8.png"
+    ],
+    "variants": [
+      {
+        "Hex": "#000",
+        "sizes": [
+          { "size": "32", "stock": 10 },
+          { "size": "34", "stock": 2 },
+          { "size": "36", "stock": 5 },
+          { "size": "38", "stock": 2 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Black Jacket",
+    "price": 1000,
+    "currency": "EGP",
+    "images": [
+      "assets/images/6.png",
+      "assets/images/6.png",
+      "assets/images/6.png",
+      "assets/images/6.png"
+    ],
+    "variants": [
+      {
+        "Hex": "#000",
+        "sizes": [
+          { "size": "S", "stock": 10 },
+          { "size": "M", "stock": 0 },
+          { "size": "L", "stock": 5 },
+          { "size": "XL", "stock": 2 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Navy Jacket",
+    "price": 1900,
+    "currency": "EGP",
+    "images": [
+      "assets/images/5.png",
+      "assets/images/5.png",
+      "assets/images/5.png",
+      "assets/images/5.png"
+    ],
+    "variants": [
+      {
+        "Hex": "#000",
+        "sizes": [
+          { "size": "S", "stock": 10 },
+          { "size": "M", "stock": 0 },
+          { "size": "L", "stock": 5 },
+          { "size": "XL", "stock": 2 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Black Crew Neck",
+    "price": 800,
+    "currency": "EGP",
+    "category": ["new-arrivals"],
+    "images": [
+      "assets/images/4.png",
+      "assets/images/4.png",
+      "assets/images/4.png",
+      "assets/images/4.png"
+    ],
+    "variants": [
+      {
+        "Hex": "#000",
+        "sizes": [
+          { "size": "S", "stock": 10 },
+          { "size": "M", "stock": 0 },
+          { "size": "L", "stock": 5 },
+          { "size": "XL", "stock": 2 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Pink Crew Neck",
+    "price": 2000,
+    "currency": "EGP",
+    "category": ["new-arrivals"],
+    "images": [
+      "assets/images/3.png",
+      "assets/images/3.png",
+      "assets/images/3.png",
+      "assets/images/3.png"
+    ],
+    "variants": [
+      {
+        "Hex": "#000",
+        "sizes": [
+          { "size": "XS", "stock": 10 },
+          { "size": "S", "stock": 10 },
+          { "size": "M", "stock": 0 },
+          { "size": "L", "stock": 5 },
+          { "size": "XL", "stock": 2 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Grey Crew Neck",
+    "price": 1200,
+    "currency": "EGP",
+    "category": ["new-arrivals"],
+    "images": [
+      "assets/images/2.png",
+      "assets/images/2.png",
+      "assets/images/2.png",
+      "assets/images/2.png"
+    ],
+    "variants": [
+      {
+        "Hex": "#000",
+        "sizes": [
+          { "size": "S", "stock": 10 },
+          { "size": "M", "stock": 2 },
+          { "size": "L", "stock": 5 },
+          { "size": "XL", "stock": 2 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Army Jacket",
+    "price": 1100,
+    "currency": "EGP",
+    "images": [
+      "assets/images/1.png",
+      "assets/images/1.png",
+      "assets/images/1.png",
+      "assets/images/1.png"
+    ],
+    "variants": [
+      {
+        "Hex": "#000",
+        "sizes": [
+          { "size": "S", "stock": 10 },
+          { "size": "M", "stock": 0 },
+          { "size": "L", "stock": 5 },
+          { "size": "XL", "stock": 2 }
+        ]
+      }
+    ]
+  }
+  
+]
