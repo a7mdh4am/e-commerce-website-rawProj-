@@ -116,7 +116,7 @@ function quantityChange(productId, change) {
 function displayCartItems() {
   const cartItemsContainer = document.querySelector(".cart__items");
   cartItemsContainer.innerHTML = "";
-  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || null;
   let totalPrice = 0;
 
   cartItems.forEach((item) => {

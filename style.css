@@ -186,6 +186,10 @@ body.no-scroll {
     .left {
         justify-content: flex-start;
     }
+
+    .left-mobile {
+        display: none;
+    }
 }
 
 
