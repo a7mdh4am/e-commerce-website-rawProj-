@@ -108,7 +108,7 @@ body.no-scroll {
 .navbar__container {
     display: grid;
     position: sticky;
-    height: auto;
+    height: 10vh;
     user-select: none;
     top: 0;
     z-index: 100;
@@ -130,7 +130,7 @@ body.no-scroll {
 
             svg {
                 width: 150px;
-                height: 50px;
+                height: auto;
             }
         }
     }
