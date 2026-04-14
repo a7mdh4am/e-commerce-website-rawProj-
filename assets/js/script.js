@@ -1,6 +1,8 @@
 const cartBtn = document.querySelectorAll("#bag_btn");
 const cartCount = document.querySelectorAll("#bag_count");
 const cart = document.querySelector(".cart__container");
+const menu = document.querySelector(".menu__container");
+const menuButton = document.querySelectorAll("#toggleMenu");
 const body = document.body;
 const navBar = document.querySelector(".navbar__container");
 const shopNow = document.querySelector("#shopNow");
@@ -49,6 +51,17 @@ function toggleCart() {
   body.classList.toggle("no-scroll");
 }
 
+function toggleMenu() {
+  menu.classList.toggle("open");
+  body.classList.toggle("no-scroll");
+}
+
+menuButton.forEach((e) => {
+  e.addEventListener("click", () => {
+    toggleMenu();
+  });
+});
+
 cartBtn.forEach((e) => {
   e.addEventListener("click", () => {
     toggleCart();
@@ -62,7 +75,6 @@ shopNow.addEventListener("mouseover", () => {
 shopNow.addEventListener("mouseleave", () => {
   shopNow.querySelector(".categories__container").style.display = "none";
   shopNow.querySelector("span").style.transform = "rotate(0deg)";
-  console.log(shopNow.querySelector("span"));
 });
 
 function addToCart(product, size, e) {

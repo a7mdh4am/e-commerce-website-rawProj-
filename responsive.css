@@ -21,7 +21,7 @@
         .left-mobile {
             display: block;
 
-            #shopNow {
+            #toggleMenu {
 
                 span {
                     display: flex;
@@ -87,6 +87,11 @@
         left: 100%;
     }
 
+    .menu__container {
+        width: 100%;
+        left: -100%;
+    }
+
     .open {
         left: 0%;
     }
@@ -144,4 +149,13 @@
 }
 
 /* Extra Small Devices */
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+    .menu__container {
+        .head {
+            h4 {
+                font-weight: 900;
+                font-size: 1.7rem;
+            }
+        }
+    }
+}
