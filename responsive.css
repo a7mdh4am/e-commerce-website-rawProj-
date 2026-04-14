@@ -1,6 +1,5 @@
 /* Responsive Styles for Shop Filters */
 
-/* Tablets (768px - 1024px) */
 @media (max-width: 1024px) {
 
     html {
@@ -14,8 +13,6 @@
 
     .navbar__container {
 
-
-        .nav__links {}
 
         .left {
             display: none;
@@ -106,104 +103,13 @@
 
 /* Small tablets (600px - 768px) */
 @media (max-width: 768px) {
-    html {
-        font-size: .9rem;
-    }
-
-    .grid__container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-
-    .navbar__container {
-
-
-        .nav__links {}
-
-        .left {
-            display: none;
-        }
-
-        .left-mobile {
-            display: block;
-
-            #shopNow {
-
-                span {
-                    display: flex;
-                    margin-bottom: 10px;
-                    width: 2rem;
-                    height: .1rem;
-                    background-color: var(--background-color);
-
-                }
-            }
-        }
-    }
-
-    footer {
-        .footer__content {
-            display: flex;
-            overflow: hidden;
-            flex-direction: column;
-
-            ul {
-                flex-direction: column;
-                display: flex;
-            }
-        }
-    }
 
     .shop__container {
-        display: block;
-
-        .categories__navlinks {
-            position: unset;
-            top: 100px;
-            color: var(--primary-color);
-            z-index: 9;
-            display: flex;
-            gap: 20px;
-            width: 100%;
-            flex-direction: unset;
-            background: var(--background-color);
-
-            a {
-                mix-blend-mode: normal;
-
-                &:hover {
-                    font-size: 1rem;
-                    font-weight: 600;
-                }
-            }
-
-            .hovered {
-                font-weight: 600;
-                font-size: 1rem;
-            }
-        }
-
         .shop__items {
             grid-template-columns: repeat(1, 1fr);
         }
     }
 
-    .cart__container {
-        width: 100%;
-        left: 100%;
-    }
-
-    .open {
-        left: 0%;
-    }
-
-    .ig__container {
-        & .ig__head {
-            h2 {
-                font-size: 1.0rem;
-            }
-        }
-    }
 }
 
 /* Mobile (max 600px) */
@@ -231,12 +137,4 @@
 }
 
 /* Extra Small Devices */
-@media (max-width: 480px) {
-    .navbar__container {
-        .nav__links {
-            .left {
-                display: none;
-            }
-        }
-    }
-}
+@media (max-width: 480px) {}

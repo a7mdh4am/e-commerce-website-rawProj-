@@ -1,4 +1,5 @@
 const cartBtn = document.querySelectorAll("#bag_btn");
+const cartCount = document.querySelectorAll("#bag_count");
 const cart = document.querySelector(".cart__container");
 const body = document.body;
 const navBar = document.querySelector(".navbar__container");
@@ -6,21 +7,17 @@ const shopNow = document.querySelector("#shopNow");
 const mostSellingContainer = document.querySelector("#most-selling-container");
 let activeLink = document.querySelector(".categories__navlinks a.active");
 
-window.addEventListener("onload", () => {
-  console.log();
-});
-
 // Fetch products from JSON
 async function fetchProducts() {
   try {
     const response = await fetch("./products.json");
     if (!response.ok) {
-      console.error("Failed to fetch products:", response.status);
+      console.log("Failed to fetch products:", response.status);
       return [];
     }
     return await response.json();
   } catch (error) {
-    console.error("Error fetching products:", error);
+    console.log("Error fetching products:", error);
     return [];
   }
 }
@@ -75,7 +72,7 @@ function addToCart(product, size) {
   setTimeout(() => {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     const existingItemIndex = cartItems.findIndex(
-      (item) => item.id === product.id,
+      (item) => item.id == product.id && item.size == size,
     );
 
     if (existingItemIndex !== -1) {
@@ -99,15 +96,38 @@ function addToCart(product, size) {
   }, 1000);
 }
 
-function quantityChange(productId, change) {
+function handlerQuantity(product, size, operation) {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  const itemIndex = cartItems.findIndex((item) => item.id === productId);
+  const itemIndex = cartItems.findIndex(
+    (item) => item.id == product.id && item.size == size,
+  );
 
-  if (itemIndex !== -1) {
-    cartItems[itemIndex].quantity += change;
+  // If item not found, stop safely
+  if (itemIndex === -1) return;
+
+  if (operation === "add") {
+    cartItems[itemIndex].quantity += 1;
+  } else if (operation === "sub") {
+    cartItems[itemIndex].quantity -= 1;
+
+    // Remove item if quantity reaches 0
     if (cartItems[itemIndex].quantity <= 0) {
       cartItems.splice(itemIndex, 1);
     }
+  }
+
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  displayCartItems();
+}
+
+function removeItemFromCart(productId, size) {
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const itemIndex = cartItems.findIndex(
+    (item) => item.id == productId && item.size == size,
+  );
+
+  if (itemIndex !== -1) {
+    cartItems.splice(itemIndex, 1);
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
     displayCartItems();
   }
@@ -117,6 +137,10 @@ function displayCartItems() {
   const cartItemsContainer = document.querySelector(".cart__items");
   cartItemsContainer.innerHTML = "";
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || null;
+  cartCount.forEach((e) => {
+    e.textContent = cartItems.length;
+  });
+
   let totalPrice = 0;
 
   cartItems.forEach((item) => {
@@ -133,11 +157,11 @@ function displayCartItems() {
             <h6 class="price">Size: <span>${item.size}</span></h6>
             <div class="quantity">
               <h6>Qty:</h6>
-              <button class="sub qty-btn" data-id="${item.id}">-</button>
+              <button class="sub qty-btn" data-id="${item.id}" data-size="${item.size}">-</button>
               <h6>${item.quantity}</h6>
-              <button class="add qty-btn" data-id="${item.id}">+</button>
+              <button class="add qty-btn" data-id="${item.id}" data-size="${item.size}">+</button>
             </div>
-            <h6 class="remove-btn" data-id="${item.id}">Remove</h6>
+            <h6 class="remove-btn" data-id="${item.id}"data-size="${item.size}">Remove</h6>
           </div>
     `;
     cartItemsContainer.appendChild(cartItem);
@@ -149,6 +173,30 @@ function displayCartItems() {
 
 // Display cart items on page load
 displayCartItems();
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("qty-btn")) {
+    const productId = e.target.dataset.id;
+    const size = e.target.dataset.size;
+    const operation = e.target.classList.contains("add") ? "add" : "sub";
+
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const product = cartItems.find(
+      (item) => item.id == productId && item.size == size,
+    );
+
+    if (product) {
+      handlerQuantity(product, size, operation);
+    }
+  }
+
+  if (e.target.classList.contains("remove-btn")) {
+    const productId = e.target.dataset.id;
+    const size = e.target.dataset.size;
+
+    removeItemFromCart(productId, size);
+  }
+});
 
 async function fetchMostSellingProduts(limit) {
   let mostSellingProducts = "";
