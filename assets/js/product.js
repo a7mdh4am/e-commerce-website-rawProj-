@@ -15,6 +15,8 @@ function displayProductDetails(product) {
     );
     const productImagesContainer = e.querySelector(".product__images");
     const addToCartBtn = e.querySelector("#add-to-cart-btn");
+    let sizesOptionsContainer = document.querySelectorAll("#sizseContainer");
+
     addToCartBtn.addEventListener("click", () => {
       addToCart(product, e.querySelector(".option.active").textContent, e);
     });
@@ -32,21 +34,31 @@ function displayProductDetails(product) {
     });
 
     productImagesContainer.innerHTML = productImages;
+
+    // Size options buttons
+    sizesOptionsContainer.forEach((e) => {
+      let productSizes = "";
+      // console.log(
+      //   product.variants[0].sizes.forEach((e) => {
+      //     console.log(e.size);
+      //   }),
+      // );
+
+      product.variants[0].sizes.forEach((e) => {
+        productSizes += `<div class="option">${e.size}</div>`;
+      });
+      e.innerHTML = productSizes;
+      const sizesOptions = e.querySelectorAll("div.option");
+      sizesOptions.forEach((e) => {
+        e.addEventListener("click", () => {
+          sizesOptions.forEach((e) => e.classList.remove("active"));
+          e.classList.toggle("active");
+        });
+      });
+    });
   });
 }
 
-// Size options buttons
-const sizesOptionsContainer = document.querySelectorAll("#sizseContainer");
-sizesOptionsContainer.forEach((e) => {
-  const sizesOptions = e.querySelectorAll("div.option");
-
-  sizesOptions.forEach((e) => {
-    e.addEventListener("click", () => {
-      sizesOptions.forEach((e) => e.classList.remove("active"));
-      e.classList.toggle("active");
-    });
-  });
-});
 // Add click handlers to description sections
 productDesctiption.forEach((e) => {
   e.querySelectorAll(".row").forEach((value) => {
@@ -70,6 +82,6 @@ productDesctiption.forEach((e) => {
   if (product) {
     displayProductDetails(product);
   } else {
-    console.error("Product not found");
+    console.log("Product not found");
   }
 })();

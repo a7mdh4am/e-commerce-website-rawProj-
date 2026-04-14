@@ -1056,6 +1056,14 @@ body.no-scroll {
 .product__container__mobile {
     display: none;
 
+    .product__section {
+        position: relative;
+        top: 40%;
+        display: flex;
+        flex-direction: column;
+
+    }
+
     .product__images {
         display: flex;
         overflow-y: scroll;
