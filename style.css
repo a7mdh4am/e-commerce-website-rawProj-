@@ -1052,6 +1052,187 @@ body.no-scroll {
 
 }
 
+.product__container__mobile {
+    display: none;
+    /* align-items: start; */
+    padding: 2.5rem;
+
+    .product__images {
+        display: flex;
+        overflow-y: scroll;
+        padding: 0.25rem;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .product__section__mobile {
+        /* position: sticky; */
+        /* top: 40%; */
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .metadata {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        /* padding: 0px 1.5rem; */
+        font-weight: bold;
+
+        .price {
+            /* font-size: 1.2rem; */
+            font-size: 0.875rem;
+            font-weight: 600;
+
+            color: var(--primary-color);
+            padding: .8rem 0;
+
+            .sale-price {
+                font-size: 0.875rem;
+                padding-left: .3rem;
+                text-decoration: line-through;
+                color: var(--sale-color);
+            }
+        }
+
+        .name {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .row {
+            /* width: 70%; */
+
+            padding-bottom: .4rem;
+
+            .title {
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                /* font-size: 1.125rem; */
+                color: var(--primary-color);
+                font-size: 0.8rem;
+
+                span {
+                    transition: transform 0.3s ease;
+                }
+            }
+
+            .description {
+                display: none;
+                font-size: .8rem;
+                font-weight: 400;
+                color: var(--text-color);
+                padding: 1rem;
+            }
+
+            .active {
+                display: block;
+            }
+        }
+    }
+
+    .data {
+
+        .colors__container {
+            display: flex;
+            margin-top: 1rem;
+
+            h4 {
+                font-size: .825rem;
+                color: var(--primary-color);
+                margin-right: 1rem;
+            }
+
+            .colors__options {
+                display: flex;
+                gap: 0.5rem;
+
+                .option {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    border: 1px solid var(--background-color);
+                }
+            }
+
+            .active {
+                box-shadow: 0 0 0 2px var(--primary-color);
+            }
+        }
+
+        .sizess__container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+
+            h4 {
+                font-size: .825rem;
+                color: var(--primary-color);
+                margin-right: 1rem;
+            }
+
+            .sizess__options {
+                display: flex;
+                gap: 0.5rem;
+
+                .option {
+                    padding: 0.2rem 0.5rem;
+                    cursor: pointer;
+                    font-size: .875rem;
+                    transition: background-color 0.3s, color 0.3s;
+
+                    &:hover {
+                        background-color: var(--text-color);
+                        color: var(--background-color);
+                    }
+                }
+            }
+
+            .active {
+                border-bottom: 2px solid var(--text-color);
+
+            }
+
+            .out-of-stock {
+                color: var(--disabled-color);
+                cursor: not-allowed;
+                /* border-bottom: 2px solid var(--disabled-color); */
+                position: relative;
+
+                &:hover {
+                    background-color: transparent;
+                    color: var(--disabled-color);
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 10%;
+                    width: 70%;
+                    height: 2px;
+                    background-color: var(--disabled-color);
+                    transform: translateY(-50%) rotate(45deg);
+
+                }
+            }
+        }
+
+        .btn {
+            margin-top: 2rem;
+
+        }
+    }
+
+
+}
+
 
 /* footer */
 

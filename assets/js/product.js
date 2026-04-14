@@ -1,4 +1,4 @@
-const productDesctiption = document.querySelector("#product-description");
+const productDesctiption = document.querySelectorAll("#product-description");
 const sizesOptionsContainer = document.querySelector("#sizseContainer");
 const sizesOptions = sizesOptionsContainer.querySelectorAll("div.option");
 
@@ -43,14 +43,16 @@ sizesOptions.forEach((e) => {
 });
 
 // Add click handlers to description sections
-productDesctiption.querySelectorAll(".row").forEach((value) => {
-  value.addEventListener("click", () => {
-    value.querySelector(".title span").style.transform = value
-      .querySelector(".description")
-      .classList.contains("active")
-      ? "rotate(0deg)"
-      : "rotate(45deg)";
-    value.querySelector(".description").classList.toggle("active");
+productDesctiption.forEach((e) => {
+  e.querySelectorAll(".row").forEach((value) => {
+    value.addEventListener("click", () => {
+      value.querySelector(".title span").style.transform = value
+        .querySelector(".description")
+        .classList.contains("active")
+        ? "rotate(0deg)"
+        : "rotate(45deg)";
+      value.querySelector(".description").classList.toggle("active");
+    });
   });
 });
 
