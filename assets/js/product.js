@@ -45,12 +45,15 @@ function displayProductDetails(product) {
       // );
 
       product.variants[0].sizes.forEach((e) => {
-        productSizes += `<div class="option">${e.size}</div>`;
+        productSizes += `<div class="option ${e.stock ? "" : "out-of-stock"}">${e.size}</div>`;
       });
       e.innerHTML = productSizes;
       const sizesOptions = e.querySelectorAll("div.option");
       sizesOptions.forEach((e) => {
         e.addEventListener("click", () => {
+          if (e.classList.contains("out-of-stock")) {
+            return 1;
+          }
           sizesOptions.forEach((e) => e.classList.remove("active"));
           e.classList.toggle("active");
         });

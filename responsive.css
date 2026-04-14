@@ -99,14 +99,6 @@
         }
     }
 
-    .product__container {
-        display: none;
-    }
-
-    .product__container__mobile {
-        display: block;
-    }
-
 }
 
 /* Small tablets (600px - 768px) */
@@ -118,6 +110,13 @@
         }
     }
 
+    .product__container {
+        display: none;
+    }
+
+    .product__container__mobile {
+        display: block;
+    }
 }
 
 /* Mobile (max 600px) */
