@@ -1060,6 +1060,7 @@ body.no-scroll {
     .product__images {
         display: flex;
         overflow-y: scroll;
+        scrollbar-width: none;
         padding: 0.25rem;
 
         img {
@@ -1068,7 +1069,7 @@ body.no-scroll {
         }
     }
 
-    .product__section__mobile {
+    .product__section {
         /* position: sticky; */
         /* top: 40%; */
         display: flex;

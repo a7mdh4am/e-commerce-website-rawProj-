@@ -10,28 +10,34 @@ function getQueryParam(param) {
 
 // Display product details
 function displayProductDetails(product) {
-  const productSectionMetadata = document.querySelector(
-    ".product__section.metadata",
-  );
-  const addToCartBtn = document.querySelector("#add-to-cart-btn");
-  addToCartBtn.addEventListener("click", () => {
-    addToCart(
-      product,
-      sizesOptionsContainer.querySelector(".option.active").textContent,
+  const productContainers = document.querySelectorAll("#prodCont");
+  productContainers.forEach((e) => {
+    const productSectionMetadata = e.querySelector(
+      ".product__section.metadata",
     );
-  });
+    const productImagesContainer = e.querySelector(".product__images");
+    const addToCartBtn = e.querySelector("#add-to-cart-btn");
+    addToCartBtn.addEventListener("click", () => {
+      addToCart(
+        product,
+        sizesOptionsContainer.querySelector(".option.active").textContent,
+      );
+    });
 
-  // Inject Product Data :/
-  productSectionMetadata.querySelector(".name").textContent = product.name;
-  productSectionMetadata.querySelector(".price").innerHTML = product.sale_price
-    ? `${product.price} ${product.currency} <span class="sale-price">${product.sale_price} ${product.currency}</span>`
-    : `${product.price} ${product.currency}`;
+    // Inject Product Data :/
+    productSectionMetadata.querySelector(".name").textContent = product.name;
+    productSectionMetadata.querySelector(".price").innerHTML =
+      product.sale_price
+        ? `${product.price} ${product.currency} <span class="sale-price">${product.sale_price} ${product.currency}</span>`
+        : `${product.price} ${product.currency}`;
 
-  let productImages = "";
-  product.images.forEach((image) => {
-    productImages += `<img src="${image}" alt="${product.name}">`;
+    let productImages = "";
+    product.images.forEach((image) => {
+      productImages += `<img src="${image}" alt="${product.name}">`;
+    });
+
+    productImagesContainer.innerHTML = productImages;
   });
-  document.querySelector(".product__images").innerHTML = productImages;
 }
 
 // Size options buttons
