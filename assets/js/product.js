@@ -1,6 +1,4 @@
 const productDesctiption = document.querySelectorAll("#product-description");
-const sizesOptionsContainer = document.querySelector("#sizseContainer");
-const sizesOptions = sizesOptionsContainer.querySelectorAll("div.option");
 
 // Get query parameter from URL
 function getQueryParam(param) {
@@ -18,10 +16,7 @@ function displayProductDetails(product) {
     const productImagesContainer = e.querySelector(".product__images");
     const addToCartBtn = e.querySelector("#add-to-cart-btn");
     addToCartBtn.addEventListener("click", () => {
-      addToCart(
-        product,
-        sizesOptionsContainer.querySelector(".option.active").textContent,
-      );
+      addToCart(product, e.querySelector(".option.active").textContent, e);
     });
 
     // Inject Product Data :/
@@ -41,13 +36,17 @@ function displayProductDetails(product) {
 }
 
 // Size options buttons
-sizesOptions.forEach((e) => {
-  e.addEventListener("click", () => {
-    sizesOptions.forEach((e) => e.classList.remove("active"));
-    e.classList.toggle("active");
+const sizesOptionsContainer = document.querySelectorAll("#sizseContainer");
+sizesOptionsContainer.forEach((e) => {
+  const sizesOptions = e.querySelectorAll("div.option");
+
+  sizesOptions.forEach((e) => {
+    e.addEventListener("click", () => {
+      sizesOptions.forEach((e) => e.classList.remove("active"));
+      e.classList.toggle("active");
+    });
   });
 });
-
 // Add click handlers to description sections
 productDesctiption.forEach((e) => {
   e.querySelectorAll(".row").forEach((value) => {

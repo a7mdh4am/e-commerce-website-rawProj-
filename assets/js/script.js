@@ -65,8 +65,8 @@ shopNow.addEventListener("mouseleave", () => {
   console.log(shopNow.querySelector("span"));
 });
 
-function addToCart(product, size) {
-  const cartBtn = document.querySelector("#add-to-cart-btn");
+function addToCart(product, size, e) {
+  const cartBtn = e.querySelector("#add-to-cart-btn");
   cartBtn.disabled = true;
   cartBtn.innerHTML = `<div class="loader"></div>`;
   setTimeout(() => {
@@ -85,7 +85,7 @@ function addToCart(product, size) {
 
     displayCartItems();
 
-    cartBtn.textContent = "Added to Bag!";
+    cartBtn.textContent = "ADDED TO BAG!";
     setTimeout(() => {
       toggleCart();
     }, 500);
